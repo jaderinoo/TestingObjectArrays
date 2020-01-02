@@ -18,6 +18,8 @@ public class loadSpace {
 
 		    	if(occupant == 'p') {
 		    		Main.addPlayerLocation(x,y,occupantInt);
+		    	}else if(occupant != 'n' && occupant != 'p') {
+		    		Main.enemyCreate(y,x,occupant,occupantInt);
 		    	}
 		    	//System.out.println("[" + type + occupant + occupantInt + objective + "] " + x + "," + y);
 		    	map[x][y] = new GridSpace(type,objective);

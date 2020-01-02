@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
 	static ArrayList<Player> playerList = new ArrayList<Player>();
+	static ArrayList<Mob1> mobList = new ArrayList<Mob1>();
 	static int rows;
 	static int cols;
 	static String mapName;
@@ -10,11 +11,14 @@ public class Main {
 	static String leaderName = null;
 	static int mapType = 0;
 	static GridSpace [][] map = null;
+	static int enemyCounter;
 	
     //Initialize the main menu
     public static void main(String[] args) throws Exception{
     	
-    	playerList.add(new Player("playerName"));
+    	playerList.add(new Player("playerName1"));
+    	playerList.add(new Player("playerName2"));
+    	playerList.add(new Player("playerName3"));
     	
     	String[] batch = loadSpace.inputToString("src\\test.txt");
 
@@ -43,14 +47,27 @@ public class Main {
 		map = loadSpace.saveMap(data,rows,cols);
 		loadSpace.printMap(map,rows,cols);
 		
-		System.out.println("Player X: " + playerList.get(0).getMapX()
-				+ " Player Y: " + playerList.get(0).getMapY());
+		for(int i = 0; i != playerList.size(); i++) {
+			System.out.println(playerList.get(i).getName() + " X: " + playerList.get(i).getMapX()
+				+ "  Y: " + playerList.get(i).getMapY());
+		}
+		
+		for(int i = 0; i != mobList.size(); i++) {
+			System.out.println(mobList.get(i).getName() + " X: " + mobList.get(i).getMapX()
+				+ "  Y: " + mobList.get(i).getMapY());
+		}
     }
     
-	
 	public static void addPlayerLocation(int x, int y, int occupantInt) {
 		playerList.get(occupantInt).setMapX(x);
 		playerList.get(occupantInt).setMapY(y);
 	}
-    
+	
+	public static void enemyCreate(int y, int x, char mobType, int level) {
+		enemyCounter++;
+		if(mobType == 'f') {
+			mobList.add(new Mob1("FootSoldier" + enemyCounter, level*2, level*2, level*2, level*2, level*5, level*1, level*12, x, y, mobType));
+			
+		}
+	}
 }
