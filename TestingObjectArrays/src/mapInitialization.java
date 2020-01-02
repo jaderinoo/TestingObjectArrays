@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
-public class playingSpace {
+
+public class mapInitialization {
+	
+	//Create a playerList for the current map
+	static ArrayList<Player> playerListCurrent = new ArrayList<Player>();
 	
 	//Create a mobList for the current map
 	static ArrayList<Mob1> mobList = new ArrayList<Mob1>();
@@ -15,9 +19,10 @@ public class playingSpace {
 	static int enemyCounter;
 	
     //Initialize the main menu
-    public static void init(ArrayList<Player> playerList) throws Exception{
+    public static void init(ArrayList<Player> passedPlayerList, String passedMapName) throws Exception{
+    	playerListCurrent = passedPlayerList;
     	
-    	String[] batch = loadMap.inputToString("src\\test.txt");
+    	String[] batch = loadMap.inputToString("AGOSS-2FX\\src\\application\\saves\\" + passedMapName + ".txt");
 
 		//Initialize vars
 		levelName = batch[0];
@@ -45,9 +50,9 @@ public class playingSpace {
 		//Saves the initial map
 		map = loadMap.saveMap(data,rows,cols);
 		
-		for(int i = 0; i != playerList.size(); i++) {
-			System.out.println(playerList.get(i).getName() + " X: " + playerList.get(i).getMapX()
-				+ "  Y: " + playerList.get(i).getMapY());
+		for(int i = 0; i != playerListCurrent.size(); i++) {
+			System.out.println(playerListCurrent.get(i).getName() + " X: " + playerListCurrent.get(i).getMapX()
+				+ "  Y: " + playerListCurrent.get(i).getMapY());
 		}
 		
 		for(int i = 0; i != mobList.size(); i++) {
@@ -60,11 +65,12 @@ public class playingSpace {
 		
 		//Move onto game
 		
-		
-		
     }
     
-
+	public static void addPlayerLocation(int x, int y, int occupantInt) {
+		playerListCurrent.get(occupantInt).setMapX(x);
+		playerListCurrent.get(occupantInt).setMapY(y);
+	}
 	
 	public static void enemyCreate(int y, int x, char mobType, int level) {
 		enemyCounter++;

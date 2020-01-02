@@ -9,7 +9,7 @@ public class Main {
     	playerList.add(new Player("name2"));
     	
     	
-    	playingSpace.init(playerList);
+    	mapInitialization.init(playerList, "test");
     }
     
 	public static void addPlayerLocation(int x, int y, int occupantInt) {
