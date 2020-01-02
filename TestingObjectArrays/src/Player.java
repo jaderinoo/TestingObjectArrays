@@ -12,16 +12,22 @@ public class Player {
 		int currentHp;
 		int mapX;
 		int mapY;
+		char image;
 		String name;
 
 		public Player(String name) {
 	    	
 	    	//Use this as a ledger for player.txt 
 	    	this.name = name;
+	    	this.image = 'p';
 	   }
 		
 		public String getName() {
 	        return name;
+	    }
+		
+		public char getImage() {
+	        return image;
 	    }
 
 		public int setMapX(int x) {
