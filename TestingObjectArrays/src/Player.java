@@ -14,18 +14,10 @@ public class Player {
 		int mapY;
 		String name;
 
-		public Player(String name, int strength,int agility,int armor,int maxHp,int special, int level, int exp, int currentHp) {
+		public Player(String name) {
 	    	
 	    	//Use this as a ledger for player.txt 
 	    	this.name = name;
-	    	this.strength = strength;
-	    	this.agility = agility;
-	    	this.armor = armor;
-	    	this.maxHp = maxHp;
-	    	this.special = special;
-	    	this.level = level;
-	    	this.exp = exp;
-	    	this.currentHp = currentHp;
 	   }
 		
 		public String getName() {
