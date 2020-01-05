@@ -10,6 +10,8 @@ public class Main {
     	
     	
     	mapInitialization.init(playerList, "test");
+    	
+    	
     }
     
 	public static void addPlayerLocation(int x, int y, int occupantInt) {

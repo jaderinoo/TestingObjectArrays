@@ -22,7 +22,7 @@ public class mapInitialization {
     public static void init(ArrayList<Player> passedPlayerList, String passedMapName) throws Exception{
     	playerListCurrent = passedPlayerList;
     	
-    	String[] batch = loadMap.inputToString("AGOSS-2FX\\src\\application\\saves\\" + passedMapName + ".txt");
+    	String[] batch = loadMap.inputToString("src\\" + passedMapName + ".txt");
 
 		//Initialize vars
 		levelName = batch[0];
@@ -59,6 +59,9 @@ public class mapInitialization {
 			System.out.println(mobList.get(i).getName() + " X: " + mobList.get(i).getMapX()
 				+ "  Y: " + mobList.get(i).getMapY());
 		}
+		
+		
+		printMap.printMap(map,rows,cols,playerListCurrent,mobList);
 		
 		//We have the Map, mobList, playerList, mapDetails, tileSets, and all positions
 		
